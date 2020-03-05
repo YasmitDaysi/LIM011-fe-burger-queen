@@ -9,9 +9,5 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'BurgerQueen';
-  items: Observable<any[]>;
-  constructor(db: AngularFirestore) {
-    this.items = db.collection('listOfClients').valueChanges();
-  }
+  
 }

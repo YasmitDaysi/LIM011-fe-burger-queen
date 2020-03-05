@@ -1,13 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+//componentes
 import { AppComponent } from './app.component';
 import { HeadComponent } from './components/head/head.component';
 
+
+//firebase  
 import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';  
 import { environment } from '../environments/environment';
 
-import { AngularFirestoreModule } from '@angular/fire/firestore';  
+//fotawesome
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -16,8 +21,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
   ],
   imports: [
     BrowserModule,
+    AngularFirestoreModule, // imports firebase/storage only needed for storage features
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule // imports firebase/storage only needed for storage features
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
