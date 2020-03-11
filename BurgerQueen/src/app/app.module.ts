@@ -21,13 +21,17 @@ import { ClientNameComponent } from './components/client-name/client-name.compon
 import { BtnSendComponent } from './components/btn-send/btn-send.component';
 
 import { from } from 'rxjs';
+import { OptionsMenuComponent } from './components/options-menu/options-menu.component';
+import { ProductsComponent } from './components/products/products.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeadComponent,
     ClientNameComponent,
-    BtnSendComponent
+    BtnSendComponent,
+    OptionsMenuComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
