@@ -106,7 +106,7 @@ pendientes de tu proyecto anterior.
 
 - [ ] HTML semántico
 - [ ] CSS flexbox
-- [ ] Sass
+- [ ] scss
 - [ ] Maquetación
 
 ### Frontend Development

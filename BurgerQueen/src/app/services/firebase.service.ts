@@ -1,22 +1,38 @@
 import { Injectable } from '@angular/core';
 import{AngularFirestore}from '@angular/fire/firestore'
-import { from } from 'rxjs';
+import { from, BehaviorSubject } from 'rxjs';
+import{OnInit}from "@angular/core"
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
-
-  constructor(private firestore: AngularFirestore) { }
-
-  getProducts(){
-    //return this.firestore.collection('products').snapshotChanges();
-    this.firestore.collection('products')
-      .valueChanges()
-      .subscribe({
-        next: (values) => console.log(values)         
-      })
+  public productFilter: any[];
+  public categoryValue = new BehaviorSubject('bebidas');//  es la varriable que se encarga en mostrar el valor inicial 
+  //currentProduct = this.productSource.asObservable();// para que se pueda trabajr mediante un obserbable el cambio de datos
+   // AllProducts: any[]
+  constructor(private firestore: AngularFirestore) {}
+   ngOnInit(): void {
     
   }
 
+  getProducts(){
+    return this.firestore.collection('products')
+      .valueChanges()
+  }
+
+updateCategory(category: string) {
+  this.categoryValue.next(category);
+  console.log(this.categoryValue.getValue());
+}
+
+  
+filterOptions(category: string){
+  this.getProducts().subscribe({
+next: ((values : any[]) => {
+ this.productFilter = values.filter((element) => element.category === this.categoryValue.next(category))
+
+})
+})
+}
 }

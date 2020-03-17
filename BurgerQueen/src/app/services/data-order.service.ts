@@ -8,6 +8,6 @@ clientName: string;
   constructor() { }
   saveClientName(name){
     this.clientName = name;
-    console.log(this.clientName);
+   // console.log(this.clientName);
   }
 }
