@@ -8,8 +8,8 @@ import{OnInit}from "@angular/core"
 })
 export class FirebaseService {
   public productFilter: any[];
-  public categoryValue = new BehaviorSubject('bebidas');//  es la varriable que se encarga en mostrar el valor inicial 
-  //currentProduct = this.productSource.asObservable();// para que se pueda trabajr mediante un obserbable el cambio de datos
+  private categoryValue = new BehaviorSubject('bebidas');//  es la varriable que se encarga en mostrar el valor inicial 
+  currentProduct = this.categoryValue.asObservable();// para que se pueda trabajr mediante un obserbable el cambio de datos
    // AllProducts: any[]
   constructor(private firestore: AngularFirestore) {}
    ngOnInit(): void {
@@ -21,18 +21,9 @@ export class FirebaseService {
       .valueChanges()
   }
 
-updateCategory(category: string) {
-  this.categoryValue.next(category);
-  console.log(this.categoryValue.getValue());
-}
-
-  
-filterOptions(category: string){
-  this.getProducts().subscribe({
-next: ((values : any[]) => {
- this.productFilter = values.filter((element) => element.category === this.categoryValue.next(category))
-
-})
-})
-}
+  updateCategory(category: string) {
+    this.categoryValue.next(category);
+    console.log(this.categoryValue.getValue());
+  }
+    
 }
