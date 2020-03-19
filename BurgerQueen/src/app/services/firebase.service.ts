@@ -23,7 +23,7 @@ export class FirebaseService {
 
   updateCategory(category: string) {
     this.categoryValue.next(category);
-    console.log(this.categoryValue.getValue());
+    console.log(this.categoryValue.value);
   }
     
 }

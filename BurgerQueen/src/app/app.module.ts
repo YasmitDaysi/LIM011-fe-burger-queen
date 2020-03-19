@@ -23,6 +23,8 @@ import { BtnSendComponent } from './components/btn-send/btn-send.component';
 import { from } from 'rxjs';
 import { OptionsMenuComponent } from './components/options-menu/options-menu.component';
 import { ProductsComponent } from './components/products/products.component';
+import { DataOrderComponent } from './components/data-order/data-order.component';
+import { PagesComponent } from './components/pages/pages.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { ProductsComponent } from './components/products/products.component';
     ClientNameComponent,
     BtnSendComponent,
     OptionsMenuComponent,
-    ProductsComponent
+    ProductsComponent,
+    DataOrderComponent,
+    PagesComponent
   ],
   imports: [
     BrowserModule,

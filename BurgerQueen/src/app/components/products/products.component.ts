@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import{FirebaseService} from "src/app/services/firebase.service"
+import {DataOrderService} from "src/app/services/data-order.service"
 
 
 @Component({
@@ -11,7 +12,14 @@ import{FirebaseService} from "src/app/services/firebase.service"
 export class ProductsComponent implements OnInit {
   allProducts: any[]= [];
   productFilter: any [];
-  constructor(private firebaseService:FirebaseService) { }
+  // arrOrder: object[];
+
+  constructor(private firebaseService:FirebaseService, private dataOrderService: DataOrderService) {
+    // this.dataOrderService.currentOrder.subscribe(array =>{
+    //   this.arrOrder = array;
+    //   console.log(this.arrOrder);
+    // })
+   }
 
   ngOnInit(): void {
 
@@ -20,9 +28,6 @@ export class ProductsComponent implements OnInit {
         this.allProducts = value;
         console.log(this.allProducts);
         
-      }
-    })
-
     this.firebaseService.currentProduct.subscribe({
       next: ((values : string) => {
       this.productFilter =  this.allProducts.filter((element) => element.category === values)
@@ -30,9 +35,17 @@ export class ProductsComponent implements OnInit {
     
       })
     //this.firebaseService.getProducts()
-  //console.log(this.firebaseService.getProducts());
+     //console.log(this.firebaseService.getProducts());
+    })
+      }
     })
 
+ 
+  }
+  add(product) {
+this.dataOrderService.addProductToOrder(product);
+    //console.log(product + 'hola aqui');
+    //this.arrOrder = product
   }
 
 }

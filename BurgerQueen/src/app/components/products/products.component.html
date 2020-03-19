@@ -3,11 +3,30 @@
 <!-- <div class="grd-row-col-6">
 
 </div> -->
-
-<!-- <div *ngFor="let product of allProducts">
+<!-- <div *ngFor="let product of productFilter">
+   <img src=""alt="">
+  
    {{product.name}}
+    {{product.price}}
  
-</div> -->
+</div>  -->
+
+<div *ngFor="let product of productFilter " class="card" style="width: 10rem;">
+    <img [src]= "product.image"> 
+   <div class="card-body">
+     <h5 class="card-title"> {{product.name}}</h5>
+     <p class="card-text"> S/ {{product.price}}</p>
+   </div> 
+   <button type="button"   (click)="add(product)" class="btn btn-danger">+</button>
+ </div>
+ 
+
+ <!-- <div *ngFor="let item of arrOrder">
+   <button (click)="add()"> + </button>
+ </div> -->
+ 
+ 
+ <!-- `https://image.tmdb.org/t/p/original${imagenes[cont].backdrop_path}` -->
 <!-- <button (click)="products()"></button> -->
 <!-- <div>{{allProducts}}</div> -->
-<div>{{productFilter}}</div>
+<!-- <div>{{productFilter}}</div> -->
