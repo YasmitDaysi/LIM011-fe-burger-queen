@@ -14,11 +14,10 @@ currentOrder = this.arrOrder.asObservable();
 
   saveClientName(name){
     this.clientName = name;
-   // console.log(this.clientName);
   }
   addProductToOrder(obj) {
     const itemObj = {
-      item: obj,
+      ... obj,
       cantidad: 1
     };
 
@@ -26,12 +25,11 @@ currentOrder = this.arrOrder.asObservable();
       ...this.arrOrder.value,
       itemObj
     ]
-    // this.arrOrder = obj;
-     console.log( obj);
+     //console.log( itemObj);
     this.arrOrder.next(newArrObj);
-    console.log(this.arrOrder);
-    
-    // this.arrayOrder.next(value);
+
   }
+
+  
   
 }
