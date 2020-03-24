@@ -10,8 +10,8 @@ import {DataOrderService} from "src/app/services/data-order.service"
 })
 
 export class ProductsComponent implements OnInit {
-  allProducts: any[]= [];
-  productFilter: any [];
+  //allProducts: any[]= [];
+  productFilter;
   // arrOrder: object[];
 
   constructor(private firebaseService:FirebaseService, private dataOrderService: DataOrderService) {
@@ -19,26 +19,35 @@ export class ProductsComponent implements OnInit {
     //   this.arrOrder = array;
     //   console.log(this.arrOrder);
     // })
+     this.firebaseService.filteredProducts.subscribe({
+     next:(value =>{
+      this.productFilter = value 
+      console.log(value)
+      //console.log(this.itemOrder);  
+     } 
+      )    
+   })
    }
 
   ngOnInit(): void {
-
-    this.firebaseService.getProducts().subscribe({
-      next: (value) => {
-        this.allProducts = value;
-        console.log(this.allProducts);
+   
+//this.allProducts;
+    // this.firebaseService.getProducts().subscribe({
+    //   next: (value) => {
+    //     this.allProducts = value;
+    //     console.log(this.allProducts);
         
-    this.firebaseService.currentProduct.subscribe({
-      next: ((values : string) => {
-      this.productFilter =  this.allProducts.filter((element) => element.category === values)
-      console.log(this.productFilter);
+    // this.firebaseService.currentProduct.subscribe({
+    //   next: ((values : string) => {
+    //   this.productFilter =  this.allProducts.filter((element) => element.category === values)
+    //   console.log(this.productFilter);
     
-      })
-    //this.firebaseService.getProducts()
-     //console.log(this.firebaseService.getProducts());
-    })
-      }
-    })
+    //   })
+    // //this.firebaseService.getProducts()
+    //  //console.log(this.firebaseService.getProducts());
+    // })
+    //   }
+    // })
 
  
   }
@@ -51,12 +60,3 @@ this.dataOrderService.addProductToOrder(product);
 }
 
 
-//   filterOptions(category: string){
-//     this.firebaseService.categoryValue.subscribe({
-//   next: ((values : string) => {
-//   this.productFilter =  this.allProducts.filter((element) => element.category === values)
-//   console.log(this.productFilter);
-
-//   })
-// })
-// }
