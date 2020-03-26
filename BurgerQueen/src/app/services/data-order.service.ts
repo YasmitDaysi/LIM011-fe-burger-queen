@@ -1,23 +1,31 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, observable } from 'rxjs';
+import { element } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataOrderService {
-clientName: string;
-//arrOrder: object[];
-private arrOrder = new BehaviorSubject([]);
-currentOrder = this.arrOrder.asObservable();
+  clientName: string;
+  //arrOrder: object[];
+  findProducto: [];
+ 
+  private arrOrder = new BehaviorSubject([]);
+   public currentOrder = this.arrOrder.asObservable();
+  public obj: object;
 
-  constructor() { }
+  constructor() {
+  }
+  
+  ngOnInit(): void {
+  }
 
-  saveClientName(name){
+  saveClientName(name) {
     this.clientName = name;
   }
   addProductToOrder(obj) {
     const itemObj = {
-      ... obj,
+      ...obj,
       cantidad: 1
     };
 
@@ -25,11 +33,23 @@ currentOrder = this.arrOrder.asObservable();
       ...this.arrOrder.value,
       itemObj
     ]
-     //console.log( itemObj);
+    //console.log( itemObj);
     this.arrOrder.next(newArrObj);
-
-  }
 
   
   
 }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+

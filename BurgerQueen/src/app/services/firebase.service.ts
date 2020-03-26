@@ -32,6 +32,7 @@ export class FirebaseService {
     this.getProducts().subscribe({
       next: (value) => {
         this.allProducts = value;
+
         //console.log(this.allProducts);
         
       this.currentProduct.subscribe({

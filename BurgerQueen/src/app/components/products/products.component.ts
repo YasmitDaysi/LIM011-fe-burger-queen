@@ -22,7 +22,8 @@ export class ProductsComponent implements OnInit {
      this.firebaseService.filteredProducts.subscribe({
      next:(value =>{
       this.productFilter = value 
-      console.log(value)
+        
+      //console.log(value)
       //console.log(this.itemOrder);  
      } 
       )    
