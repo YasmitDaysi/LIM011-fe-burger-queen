@@ -12,27 +12,52 @@ export class FirebaseService {
   private categoryValue = new BehaviorSubject('bebidas');//  es la varriable que se encarga en mostrar el valor inicial 
   currentProduct = this.categoryValue.asObservable();// para que se pueda trabajr mediante un obserbable el cambio de datos
    // AllProducts: any[]
+  prueba: any[]
+  x;
   constructor(private firestore: AngularFirestore) {}
    ngOnInit(): void {
+
     
+  }
+
+  
+  public products = [];
+    
+  public getProductst() {
+    this.products = [];
+   return this.firestore.collection('products').snapshotChanges().subscribe((productsSnapshot) => {
+    
+    productsSnapshot.forEach((productData: any) => {
+        this.products.push({
+          id: productData.payload.doc.id,
+          data: productData.payload.doc.data()
+        });
+      
+      });
+      console.log(this.products);
+      
+      return this.products;
+    });
+   
   }
 
     getProducts(){
     return this.firestore.collection('products')
       .valueChanges()
     }
-
+   
     updateCategory(category: string) {
     this.categoryValue.next(category);
 // console.log(this.categoryValue.value);
     }
 
   public filteredProducts = new Observable((observer) => {
+  console.log(this.products);
+  
     //console.log("aqui")
     this.getProducts().subscribe({
       next: (value) => {
         this.allProducts = value;
-
         //console.log(this.allProducts);
         
       this.currentProduct.subscribe({

@@ -11,6 +11,7 @@ import {DataOrderService} from "src/app/services/data-order.service"
 
 export class ProductsComponent implements OnInit {
   //allProducts: any[]= [];
+  //prueba: any[]
   productFilter;
   // arrOrder: object[];
 
@@ -30,7 +31,21 @@ export class ProductsComponent implements OnInit {
    })
    }
 
+  
+
   ngOnInit(): void {
+    // this.firebaseService.getdata().subscribe((productsSnapshot) => {
+    //   this.prueba = [];
+    //   productsSnapshot.forEach((productData: any) => {
+    //     this.prueba.push({
+    //       id: productData.payload.doc.id,
+    //       data: productData.payload.doc.data()
+    //     });
+    //   });
+    //  this.firebaseService.llamarfuncion(this.prueba) ;
+    // });
+    
+    
    
 //this.allProducts;
     // this.firebaseService.getProducts().subscribe({
