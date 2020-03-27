@@ -41,6 +41,7 @@ export class DataOrderComponent implements OnInit {
   // }) 
 
 this.dataOrderService.addProductToOrder(itemd);
+this.dataOrderService.quantityAddOrder(itemd);
 //this.itemOrder = arrayproduc;
 //console.log(this.itemOrder);
 
@@ -49,7 +50,7 @@ this.dataOrderService.addProductToOrder(itemd);
 
 
    subtract(obj){
-   this.dataOrderService.quantityAddOrder(obj);
+   
    }
   
   

@@ -9,7 +9,7 @@ export class DataOrderService {
   clientName: string;
   //arrOrder: object[];
   findProducto: [];
- 
+   
   private arrOrder = new BehaviorSubject([]);
    public currentOrder = this.arrOrder.asObservable();
   public obj: object;
@@ -26,55 +26,54 @@ export class DataOrderService {
   addProductToOrder(obj) {
     const itemObj = {
       ...obj,
-      cantidad: 1
+      quantity: 1
     };
 
     const newArrObj = [
       ...this.arrOrder.value,
       itemObj
     ]
-    //console.log( itemObj);
     this.arrOrder.next(newArrObj);
- 
+
 }
 
 public quantityAddOrder(itemd){
   let arrayproduc = [];
-  //let ObjPro ={}
-// this.currentOrder.subscribe({
-//   next: ((value: [])=>{ 
-//     this.findProducto = value
-//     console.log(this.findProducto);
-    
-//   })
-// })
-
-const arreglo:object = this.arrOrder.value.find((element)=>{ 
-//console.log(element);
-
+const obj:object = this.arrOrder.value.find((element)=>{ 
   return itemd.id === element.id;
  }) 
- console.log(arreglo);
- 
+
+ if(obj){
+   arrayproduc = this.arrOrder.value.map((element)=>{
+     let objProducto:{}
+     let objProducto2:{}
+     if(itemd.id === element.id){
+      objProducto = {
+        name: element.data.name,
+        price: element.data.price,
+        quantity: element.quantity + 1,
+        id: element.id
+      }
+      return objProducto;
+     }
+     return  objProducto2= {
+       ... objProducto,
+       name: element.data.name,
+       price: element.data.price,
+       quantity: element.quantity + 1,
+       id: element.id
+     };
+   })
+   
+   
+    console.log(arrayproduc);
+  
+ }
+ return arrayproduc;
+ //return this.arrOrder;
   
 }
 
-
-// if(arreglo){
-//   arrayproduc = this.itemOrder.map((element)  => {
-//     let objetnew: {}
-//     if(itemd.id === element.id){
-//       objetnew = {
-//         name: element.name,
-//         price: element.price,
-//         cantidad: element.cantidad + 1,
-//         id: element.id
-//       }
-//       return objetnew;
-//     } return element;
-//   })
- 
-// }
   
 }
 

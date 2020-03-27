@@ -2,7 +2,7 @@
 <div *ngFor= "let itemOrder of itemOrder">
     <form action="">
 <button type="button" class = "btn btn-info btnOrder" (click)="addProducts(itemOrder)">+</button>
-        <label>{{itemOrder.cantidad}}</label>
+        <label>{{itemOrder.quantity}}</label>
 <button type="button" class="btn btn-info btnOrder" (click)="subtract(itemOrder)" >-</button>
 
         <label for="">{{itemOrder.name}}</label>
