@@ -31,39 +31,25 @@ export class DataOrderComponent implements OnInit {
 
   addProducts(itemd){
     //console.log("hola aqui");
+    //debugger
     let arrayproduc = [];
     //let ObjPro ={}
-  const arreglo:object = this.itemOrder.find(element=>{ 
+  // const arreglo:object = this.itemOrder.find(element=>{ 
 
-    return itemd.name === element.name
+  //   return itemd.id === element.id
    
-  }) 
+  // }) 
 
-if(arreglo){
-  arrayproduc = this.itemOrder.map((element)  => {
-    let objetnew: {}
-    if(itemd.id === element.id){
-      objetnew = {
-        name: element.name,
-        price: element.price,
-        cantidad: element.cantidad + 1,
-        id: element.id
-      }
-      return objetnew;
-    } return element;
-  })
- 
-}
-
-this.itemOrder = arrayproduc;
-console.log(this.itemOrder);
+this.dataOrderService.addProductToOrder(itemd);
+//this.itemOrder = arrayproduc;
+//console.log(this.itemOrder);
 
   }
 
 
 
    subtract(obj){
-  //  this.dataOrderService.subtract(obj);
+   this.dataOrderService.quantityAddOrder(obj);
    }
   
   

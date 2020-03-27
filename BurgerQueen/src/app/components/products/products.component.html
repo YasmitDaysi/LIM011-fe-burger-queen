@@ -12,10 +12,10 @@
 </div>  -->
 
 <div *ngFor="let product of productFilter " class="card" style="width: 10rem;">
-    <img [src]= "product.image"> 
+    <img [src]= "product.data.image"> 
    <div class="card-body">
-     <h5 class="card-title"> {{product.name}}</h5>
-     <p class="card-text"> S/ {{product.price}}</p>
+     <h5 class="card-title"> {{product.data.name}}</h5>
+     <p class="card-text"> S/ {{product.data.price}}</p>
    </div> 
    <button type="button"   (click)="add(product)" class="btn btn-danger">+</button>
  </div>
