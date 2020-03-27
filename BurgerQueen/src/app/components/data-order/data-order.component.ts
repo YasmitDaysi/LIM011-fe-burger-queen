@@ -10,19 +10,19 @@ import { element } from 'protractor';
 })
 
 export class DataOrderComponent implements OnInit {
-  
+  indice: number;
   quantityProducts : number;
-  itemOrder: any [];
-   //valorany:any;
+  arrOrderProducts: any [];
   constructor(private dataOrderService: DataOrderService) {
 
    }
   
-   
-
   ngOnInit(): void {
    //console.log(this.itemOrder);
-   this.dataOrderService.currentOrder.subscribe({ next: (value) => {this.itemOrder = value
+   this.dataOrderService.currentOrder.subscribe({ next: (value) => {
+     console.log(value);
+     
+     this.arrOrderProducts = value
     } 
   });
    
@@ -30,27 +30,37 @@ export class DataOrderComponent implements OnInit {
 
 
   addProducts(itemd){
-    //console.log("hola aqui");
-    //debugger
-    let arrayproduc = [];
-    //let ObjPro ={}
-  // const arreglo:object = this.itemOrder.find(element=>{ 
+  
+  this.indice = this.arrOrderProducts.indexOf(itemd);
+  console.log([this.indice]);
 
-  //   return itemd.id === element.id
-   
-  // }) 
-
-this.dataOrderService.addProductToOrder(itemd);
-this.dataOrderService.quantityAddOrder(itemd);
-//this.itemOrder = arrayproduc;
-//console.log(this.itemOrder);
+  this.arrOrderProducts[this.indice].quantity = this.arrOrderProducts[this.indice].quantity + 1; 
+  this.arrOrderProducts[this.indice].data.price = this.arrOrderProducts[this.indice].data.price + itemd.data.price
 
   }
 
 
 
-   subtract(obj){
+   subtractProducts(obj){
+    this.indice = this.arrOrderProducts.indexOf(obj)
+
+    if(this.arrOrderProducts[this.indice].quantity >=1){
+      this.arrOrderProducts[this.indice].quantity = this.arrOrderProducts[this.indice].quantity - 1;
+    }
+    if(this.arrOrderProducts[this.indice].quantity === 0){
+      this.deleteProduc(obj)
+    }
+
    
+   }
+
+   deleteProduc(obj){
+     const indice = this.arrOrderProducts.findIndex((element)=> element.id === obj.id);
+     //console.log(positionProduc);
+     if (indice !== -1) {
+      this.arrOrderProducts.splice(indice,1);
+    }
+
    }
   
   

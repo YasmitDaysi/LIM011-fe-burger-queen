@@ -1,49 +1,18 @@
-
-<div *ngFor= "let itemOrder of itemOrder">
-    <form action="">
-<button type="button" class = "btn btn-info btnOrder" (click)="addProducts(itemOrder)">+</button>
-        <label>{{itemOrder.quantity}}</label>
-<button type="button" class="btn btn-info btnOrder" (click)="subtract(itemOrder)" >-</button>
-
-        <label for="">{{itemOrder.name}}</label>
-        <label for="">{{itemOrder.price}}</label>
-          
-    </form>
    
-</div>
-
-<!-- <div *ngFor="let valorany of valorany">
-    <label for="">{{valorany.name}}</label>
-    <label for="">{{i.cantidad}}</label>
-</div>
-<div>asdfghjkl</div> -->
-
-<!-- <table>
-    <tr>
-      <th>Cant.</th>
-      <th>Descripción</th>
-      <th>Precio</th>
-    </tr>
-    <tr *ngFor="let item of arrOrder">
-      <td>
-        <button (click)="subtract(item)"> - </button>
-        <label> {{ item.quantity }} </label>
-        <button (click)="add(item)"> + </button>
-      </td>
-      <td>
-    <tr>{{item.product}} </tr>
-    <tr *ngIf="item.extra.length > 0">
-      <label *ngFor="let extra of item.extra">{{extra.data.name}} </label>
-    </tr>
-    </td>
-    <td> $ {{item.amount}} </td>
+<table>
+  <tr *ngFor= "let arrOrderProducts of arrOrderProducts">
     <td>
-      <button (click)="deleteItem(item)">X</button>
+      <button type="button" class = "btn btn-info btnOrder" (click)="addProducts(arrOrderProducts)">+</button>
+        <label>{{arrOrderProducts.quantity}}</label>
+<button type="button" class="btn btn-info btnOrder" (click)="subtractProducts(arrOrderProducts)" >-</button>
     </td>
-    </tr>
-    <tr>
-      <td>Total</td>
-      <td></td>
-      <td>{{totalAmount}}</td>
-    </tr>
-  </table> -->
+    <td>
+      <label for="">{{arrOrderProducts.data.name}}</label>
+      <label for="">{{arrOrderProducts.data.price}}</label>
+    </td>
+    <td>
+      <button (click)="deleteProduc(arrOrderProducts)">eliminar</button>
+    </td>
+  </tr>
+</table>
+
