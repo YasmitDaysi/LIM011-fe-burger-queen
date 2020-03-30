@@ -27,7 +27,8 @@ export class DataOrderService {
   addProductToOrder(obj) {
     const itemObj = {
       ...obj,
-      quantity: 1
+      quantity: 1,
+      amount: 0
     };
 
     const newArrObj = [

@@ -8,7 +8,7 @@
     </td>
     <td>
       <label for="">{{arrOrderProducts.data.name}}</label>
-      <label for="">{{arrOrderProducts.data.price}}</label>
+      <label for="">{{arrOrderProducts.data.price * arrOrderProducts.quantity}}</label>
     </td>
     <td>
       <button (click)="deleteProduc(arrOrderProducts)">eliminar</button>
