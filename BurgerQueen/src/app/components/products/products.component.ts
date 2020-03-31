@@ -13,32 +13,35 @@ export class ProductsComponent implements OnInit {
 
   //prueba: any[]
   productFilter;
-
+  public productsExtra:any[];
 
   constructor(private firebaseService:FirebaseService, private dataOrderService: DataOrderService) {
 
      this.firebaseService.filteredProducts.subscribe({
      next:(value =>{
       this.productFilter = value 
+     // console.log(this.productFilter);
     
      } 
       )    
    })
+ this.firebaseService.extraProducts.subscribe({
+  next:(value =>{
+    this.productsExtra = value;
+    console.log(this.productsExtra);
+
+  })
+})
+
+
+  
+   
    }
 
   
 
   ngOnInit(): void {
-    // this.firebaseService.getdata().subscribe((productsSnapshot) => {
-    //   this.prueba = [];
-    //   productsSnapshot.forEach((productData: any) => {
-    //     this.prueba.push({
-    //       id: productData.payload.doc.id,
-    //       data: productData.payload.doc.data()
-    //     });
-    //   });
-    //  this.firebaseService.llamarfuncion(this.prueba) ;
-    // });
+   
  
   }
   add(product) {

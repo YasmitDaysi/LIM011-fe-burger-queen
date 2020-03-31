@@ -8,7 +8,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';  
 import { environment } from '../environments/environment';
 import{AngularFireStorageModule}from 'angularfire2/storage';
-import{AngularFireAuth}from 'angularfire2/auth'; // autenticacion 
+// import{AngularFireAuth}from 'angularfire2/auth'; // autenticacion 
 
 //fotawesome
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -26,6 +26,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { DataOrderComponent } from './components/data-order/data-order.component';
 import { PagesComponent } from './components/pages/pages.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { PagesComponent } from './components/pages/pages.component';
     OptionsMenuComponent,
     ProductsComponent,
     DataOrderComponent,
-    PagesComponent
+    PagesComponent,
+
   ],
   imports: [
     BrowserModule,

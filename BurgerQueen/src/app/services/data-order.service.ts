@@ -28,7 +28,7 @@ export class DataOrderService {
     const itemObj = {
       ...obj,
       quantity: 1,
-      amount: 0
+      //amount: 0
     };
 
     const newArrObj = [
@@ -39,42 +39,6 @@ export class DataOrderService {
 
 }
 
-// public quantityAddOrder(itemd){
-//   let arrayproduc = [];
-// const obj:object = this.arrOrder.value.find((element)=>{ 
-//   return itemd.id === element.id;
-//  }) 
-
-//  if(obj){
-//    arrayproduc = this.arrOrder.value.map((element)=>{
-//      let objProducto:{}
-//      let objProducto2:{}
-//      if(itemd.id === element.id){
-//       objProducto = {
-//         name: element.data.name,
-//         price: element.data.price,
-//         quantity: element.quantity + 1,
-//         id: element.id
-//       }
-//       return objProducto;
-//      }
-//      return  objProducto2= {
-//        ... objProducto,
-//        name: element.data.name,
-//        price: element.data.price,
-//        quantity: element.quantity + 1,
-//        id: element.id
-//      };
-//    })
-   
-   
-//     console.log(arrayproduc);
-  
-//  }
-//  return this.arrOrder.next(arrayproduc);
-//  //return this.arrOrder;
-  
-// }
 
   
 }
