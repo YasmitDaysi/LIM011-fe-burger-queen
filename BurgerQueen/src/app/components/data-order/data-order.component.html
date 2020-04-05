@@ -1,20 +1,32 @@
-   
 <table>
-  <tr *ngFor= "let arrOrderProducts of arrOrderProducts">
+  <tr *ngFor= "let Products of arrOrderProducts">
     <td>
-      <button type="button" class = "btn btn-info btnOrder" (click)="addProducts(arrOrderProducts)">+</button>
-        <label>{{arrOrderProducts.quantity}}</label>
-<button type="button" class="btn btn-info btnOrder" (click)="subtractProducts(arrOrderProducts)" >-</button>
+      <button type="button" class = "btn btn-info btnOrder" (click)="addProducts(Products)">+</button>
+        <label for="">{{Products.quantity}}</label>
+<button type="button" class="btn btn-info btnOrder" (click)="subtractProducts(Products)" >-</button>
     </td>
     <td>
-      <label for="">{{arrOrderProducts.data.name}}</label>
-      <label for="">{{arrOrderProducts.data.price * arrOrderProducts.quantity}}</label>
+      <label for="">{{Products.data.name }}</label>
+      <label for="">{{Products.data.price * Products.quantity}}</label><br>
+      <span *ngIf="Products.Queso === true && Products.Huevo === undefined" > + queso {{Products.priceExtra * Products.quantity}} </span>
+      <span *ngIf="Products.Huevo === true && Products.Queso === undefined">+ huevo {{Products.priceExtra * Products.quantity}} </span>
+     <span *ngIf="Products.Huevo === true && Products.Queso === true"> + huevo y queso  {{Products.priceExtraTwo * Products.quantity }}</span>
+    
+   
+     
+     <!-- <span *ngIf="Products.Queso === true || Products.Huevo === true"> </span>
+       -->
     </td>
     <td>
-      <button  type="button" class = "btn"(click)="deleteProduc(arrOrderProducts)">
+      <button  type="button" class = "btn"(click)="deleteProduc(Products)">
         <img src="../../../assets/Delete.ico" width="30" height="30" class="d-inline-block align-top" alt="">
       </button>
     </td>
   </tr>
+
 </table>
 
+<div>
+   <p> Total: {{ totalPrice }}</p>
+   <button (click)="sendToOrrder()">jjjj</button>
+</div>

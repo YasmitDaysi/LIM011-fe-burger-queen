@@ -12,15 +12,17 @@ import {DataOrderService} from "src/app/services/data-order.service"
 export class ProductsComponent implements OnInit {
 
   //prueba: any[]
-  productFilter;
+  public productFilter;
   public productsExtra:any[];
+  public prodExtraSelected: any;
+  public newObjectExtra: {};
 
   constructor(private firebaseService:FirebaseService, private dataOrderService: DataOrderService) {
 
      this.firebaseService.filteredProducts.subscribe({
      next:(value =>{
       this.productFilter = value 
-     // console.log(this.productFilter);
+     console.log(this.productFilter);
     
      } 
       )    
@@ -48,6 +50,38 @@ export class ProductsComponent implements OnInit {
 this.dataOrderService.addProductToOrder(product);
 
   }
+
+  addExtras(objTemporal: object){
+    //this.dataOrderService.addProductToOrder(objTemporal)
+   this.prodExtraSelected =  {...objTemporal};
+  
+    console.log(this.prodExtraSelected);
+  
+   
+   
+  }
+
+  addExtrasProduct(extra: string){
+    console.log(extra);
+    
+    this.prodExtraSelected[extra] = true;
+  console.log(this.prodExtraSelected[extra]);
+    
+    
+    this.newObjectExtra = {
+      ...this.prodExtraSelected,
+      priceExtra: 1,
+      priceExtraTwo: 2
+    }
+
+  }
+
+  addFinalExtras(objeto: object){
+    objeto =  this.newObjectExtra 
+    
+     this.add(objeto);
+     
+   }
 
 }
 

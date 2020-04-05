@@ -28,10 +28,13 @@ export class FirebaseService {
 
   
   public products:any[];
+
     
   public getProducts() {
    this.products = [];
    return this.firestore.collection('products').snapshotChanges().pipe( map((productsSnapshot:any) => {
+   
+
     
     productsSnapshot.forEach((productData: any) => {
        this.products.push({
@@ -60,10 +63,11 @@ export class FirebaseService {
   public filteredProducts = new Observable((observer) => {
     this.getProducts().subscribe({
       next: (value) => {
-        console.log(value);
+      //  console.log(value);
         
         this.allProducts = value;
 this.extraProducts.next(value.filter((element)=>element.data.category === 'extras')) 
+
       this.currentProduct.subscribe({
         next: ((value : string) => {
         observer.next(this.allProducts.filter(element => element.data.category === value))
@@ -76,7 +80,9 @@ this.extraProducts.next(value.filter((element)=>element.data.category === 'extra
 
   })
 
- 
+  sendOrderToKitchen(obj){
+return this.firestore.collection('kitchen').add(obj);
+  }
 }
 
 

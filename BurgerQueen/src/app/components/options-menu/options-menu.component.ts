@@ -13,15 +13,7 @@ export class OptionsMenuComponent implements OnInit {
   }
   sourceProducts(category){
     this.firebaseService.updateCategory(category); 
-    // if(category === 'bebidas' || category === 'adicional'){
-    //   this.firebaseService.updateCategory(category); 
-    // }
-//    if(category==='menu'){
-// this.firebaseService.getOpcionMenu(category)
-
-//    }
-   //this.firebaseService.filterOptions(category);
-   console.log(category);
+    
    
     
   }

@@ -1,7 +1,6 @@
 <!-- <div class="container" ngFor="let product of products">productos</div> -->
 <!--<input ngFor="let product of products">-->
 <!-- <div class="grd-row-col-6">
-
 </div> -->
 <!-- <div *ngFor="let product of productFilter">
    <img src=""alt="">
@@ -13,44 +12,44 @@
 
 
 <div class="x">
-<div *ngFor="let product of productFilter" class="cardProduts">
-  <div>
-    <img [src]= "product.data.image"> 
-      <h5 > {{product.data.name}}</h5>
-      <p > S/ {{product.data.price}}</p>
-    </div>
+  <div *ngFor="let product of productFilter" class="cardProduts">
     <div>
-      <button type="button"   (click)="add(product)" class="btn btn-danger">+</button>
-    <button type="button" *ngIf ="product.data.category === 'menu'" class="btn btn-danger" data-toggle="modal" data-target="#productsModal">Extra</button>
-    </div>  
-  </div>
-  
-  </div>
-
- <!-- Modal -->
- <div class="modal fade" id="productsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Extras</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <img [src]= "product.data.image"> 
+        <h5 > {{product.data.name}}</h5>
+        <p > S/ {{product.data.price}}</p>
       </div>
-      <div class="modal-body" *ngFor= " let productExtra of productsExtra">
-        <div>
-          <img [src]= "productExtra.data.image"> 
-            <h5 > {{productExtra.data.name}}</h5>
-            <p > S/ {{productExtra.data.price}}</p>
-          </div>
+      <div>
+        <button type="button"   (click)="add(product)" class="btn btn-danger">+</button>
+      <button type="button" *ngIf ="product.data.category === 'menu'" (click)="addExtras(product)" class="btn btn-danger" data-toggle="modal" data-target="#productsModal">Extra</button>
+      </div>  
+    </div>
+    
+    </div>
+  
+   <!-- Modal -->
+   <div class="modal fade" id="productsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Extras</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" *ngFor= " let productExtra of productsExtra">
           <div>
-            <button type="button"   (click)="add(productExtra)" class="btn btn-danger">+</button>
-          
-          </div> 
+            <img [src]= "productExtra.data.image"> 
+              <h5 > {{productExtra.data.name}}</h5>
+              <p > S/ {{productExtra.data.price}}</p>
+            </div>
+            <div>
+              <button type="button"  (click)= "addExtrasProduct(productExtra.data.name)"class="btn btn-danger">+</button>
+            
+            </div> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click)="addFinalExtras(newObjectExtra)"class="btn btn-secondary" data-dismiss="modal">¡Listo!</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
- 
-
-
