@@ -1,3 +1,12 @@
+<form class="form-inline client-name" [formGroup]= "nameForm">
+  <div class="form-group my-2">
+    <label class=" name">Cliente:</label>
+    <input (input)= "captureName()" formControlName = "nameValue"
+    type="text" class="form-control client-input" id="formGroupExampleInput" placeholder="Ingresa tu nombre">
+
+  </div>
+</form>
+
 <table>
   <tr *ngFor= "let Products of arrOrderProducts">
     <td>
@@ -28,5 +37,6 @@
 
 <div>
    <p> Total: {{ totalPrice }}</p>
-   <button (click)="sendToOrrder()">jjjj</button>
+   <button  (click)="sendToOrrder()" type="button" class="btnSend btn btn-primary">Enviar a la cocina</button>
 </div>
+

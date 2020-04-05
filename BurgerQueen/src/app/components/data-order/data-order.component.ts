@@ -3,6 +3,7 @@ import {DataOrderService}from "src/app/services/data-order.service";
 import { from } from 'rxjs';
 import { element } from 'protractor';
 import {FirebaseService} from "src/app/services/firebase.service"
+import{FormGroup,FormControl}from '@angular/forms'
 
 @Component({
   selector: 'app-data-order',
@@ -17,6 +18,7 @@ export class DataOrderComponent implements OnInit {
   totalPrice: number = 0;
   public nameCliente: string;
   public objProducts: object;
+  public customerName = '';
   constructor(private dataOrderService: DataOrderService, private firebaseService: FirebaseService ) {
 
    }
@@ -36,6 +38,19 @@ export class DataOrderComponent implements OnInit {
   // console.log(this.dataOrderService.clientName );
   
   }
+
+  nameForm = new FormGroup({
+    nameValue: new FormControl('')
+  });
+  
+   captureName(){
+     this.customerName = this.nameForm.value.nameValue;
+     console.log(this.customerName);
+     
+
+     //this.dataOrderService.saveClientName(this.nameForm.value.nameValue);
+   }
+ 
   
 
   addProducts(itemd){
@@ -78,7 +93,6 @@ export class DataOrderComponent implements OnInit {
 
     deleteProduc(obj){
       const indice = this.arrOrderProducts.findIndex((element)=> element.id === obj.id);
-      //console.log(positionProduc);
       if (indice !== -1) {
        this.arrOrderProducts.splice(indice,1);
      }
@@ -86,13 +100,18 @@ export class DataOrderComponent implements OnInit {
     }
   
   sendToOrrder(){
+   
   const obj = {... this.arrOrderProducts}
-  this.firebaseService.sendOrderToKitchen(obj);
-  console.log('enviado');
-  
-  
+  const finalObj = {
+    customerName: this.customerName,
+    Order: obj,
+    totalOrder: this.totalPrice,
+    dateOrde:  new Date(),
+
   }
-  
+  this.firebaseService.sendOrderToKitchen(finalObj);
+  console.log('enviado');
+  }
   
 }
 

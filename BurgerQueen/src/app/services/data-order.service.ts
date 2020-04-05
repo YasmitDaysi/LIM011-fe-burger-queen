@@ -6,7 +6,7 @@ import { element } from 'protractor';
   providedIn: 'root'
 })
 export class DataOrderService {
-  clientName: string;
+  //clientName: string;
   //arrOrder: object[];
   findProducto: [];
    
@@ -20,9 +20,9 @@ export class DataOrderService {
   ngOnInit(): void {
   }
 
-  saveClientName(name) {
-    this.clientName = name;
-  }
+  // saveClientName(name) {
+  //   this.clientName = name;
+  // }
   
   addProductToOrder(obj) {
     const itemObj = {

@@ -9,16 +9,6 @@ import{DataOrderService} from 'src/app/services/data-order.service'
   styleUrls: ['./client-name.component.scss']
 })
 export class ClientNameComponent  {
- nameForm = new FormGroup({
-   nameValue: new FormControl('')
- });
-  constructor(private dataOrderService:DataOrderService){}
-  captureName(){
-    console.log(this.nameForm.value.nameValue);
-  
-    
-    this.dataOrderService.saveClientName(this.nameForm.value.nameValue);
-  }
 
 
 }
