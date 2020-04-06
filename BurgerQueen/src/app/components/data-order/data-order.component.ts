@@ -57,10 +57,9 @@ export class DataOrderComponent implements OnInit {
   
   this.indice = this.arrOrderProducts.indexOf(itemd);
   //console.log([this.indice]);
-
   this.arrOrderProducts[this.indice].quantity = this.arrOrderProducts[this.indice].quantity + 1; 
   this.arrOrderProducts[this.indice].data.price =  this.arrOrderProducts[this.indice].data.price ;
-
+  this.addTotalPrice()
   }
 
 
@@ -74,7 +73,7 @@ export class DataOrderComponent implements OnInit {
     if(this.arrOrderProducts[this.indice].quantity === 0){
       this.deleteProduc(obj)
     }
-
+    this.addTotalPrice()
    
    }
 
@@ -106,8 +105,10 @@ export class DataOrderComponent implements OnInit {
       const indice = this.arrOrderProducts.findIndex((element)=> element.id === obj.id);
       if (indice !== -1) {
        this.arrOrderProducts.splice(indice,1);
+       this.addTotalPrice()
      }
      console.log(this.arrOrderProducts);
+
     }
   
   sendToOrrder(){
