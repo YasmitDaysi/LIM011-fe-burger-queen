@@ -34,20 +34,16 @@ export class ProductsComponent implements OnInit {
 
   })
 })
-
-
-  
-   
+     
    }
 
-  
-
-  ngOnInit(): void {
+ ngOnInit(): void {
    
  
   }
+
   add(product) {
-this.dataOrderService.addProductToOrder(product);
+      this.dataOrderService.addProductToOrder(product);
 
   }
 
@@ -56,9 +52,7 @@ this.dataOrderService.addProductToOrder(product);
    this.prodExtraSelected =  {...objTemporal};
   
     console.log(this.prodExtraSelected);
-  
-   
-   
+
   }
 
   addExtrasProduct(extra: string){

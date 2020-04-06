@@ -57,7 +57,6 @@ export class DataOrderComponent implements OnInit {
   
   this.indice = this.arrOrderProducts.indexOf(itemd);
   //console.log([this.indice]);
-
   this.arrOrderProducts[this.indice].quantity = this.arrOrderProducts[this.indice].quantity + 1; 
   this.arrOrderProducts[this.indice].data.price =  this.arrOrderProducts[this.indice].data.price ;
   this.addTotalPrice()
