@@ -1,42 +1,58 @@
-<form class="form-inline client-name" [formGroup]= "nameForm">
+<form class="form-inline client-name" [formGroup]="nameForm">
   <div class="form-group my-2">
     <label class=" name">Cliente:</label>
-    <input (input)= "captureName()" formControlName = "nameValue"
-    type="text" class="form-control client-input" id="formGroupExampleInput" placeholder="Ingresa tu nombre">
+    <input (input)="captureName()" formControlName="nameValue" type="text" class="form-control client-input"
+      id="formGroupExampleInput" placeholder="Ingresa tu nombre">
 
   </div>
-</form>
 
-<table>
-  <tr *ngFor= "let Products of arrOrderProducts">
-    <td>
-      <button type="button" class = "btn btn-info btnOrder" (click)="addProducts(Products)">+</button>
-        <label for="">{{Products.quantity}}</label>
-<button type="button" class="btn btn-info btnOrder" (click)="subtractProducts(Products)" >-</button>
-    </td>
-    <td>
-      <label for="">{{Products.data.name }}</label>
-      <label for="">{{Products.data.price * Products.quantity}}</label><br>
-      <span *ngIf="Products.Queso === true && Products.Huevo === undefined" > + queso {{Products.priceExtra * Products.quantity}} </span>
-      <span *ngIf="Products.Huevo === true && Products.Queso === undefined">+ huevo {{Products.priceExtra * Products.quantity}} </span>
-     <span *ngIf="Products.Huevo === true && Products.Queso === true"> + huevo y queso  {{Products.priceExtraTwo * Products.quantity }}</span>
-    
-   
-     
-     <!-- <span *ngIf="Products.Queso === true || Products.Huevo === true"> </span>
-       -->
-    </td>
-    <td>
-      <button  type="button" class = "btn"(click)="deleteProduc(Products)">
-        <img src="../../../assets/Delete.ico" width="30" height="30" class="d-inline-block align-top" alt="">
-      </button>
-    </td>
-  </tr>
 
-</table>
+  <table>
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Precio</th>
+        <!-- <th scope="col"></th> -->
+      </tr>
+    </thead>
+    <tr *ngFor="let Products of arrOrderProducts">
+      <td>
+        <button type="button" class="btn btn-info btnOrder" (click)="addProducts(Products)">+</button>
+        <span for="">{{Products.quantity}}</span>
+        <button type="button" class="btn btn-info btnOrder" (click)="subtractProducts(Products)">-</button>
+      </td>
+      <td>
+        <span for="">{{Products.data.name }}</span><br>
 
+        <span *ngIf="Products.Queso === true && Products.Huevo === undefined"> + queso
+          {{Products.priceExtra * Products.quantity}} </span>
+        <span *ngIf="Products.Huevo === true && Products.Queso === undefined">+ huevo
+          {{Products.priceExtra * Products.quantity}} </span>
+        <span *ngIf="Products.Huevo === true && Products.Queso === true"> + huevo y queso
+          {{Products.priceExtraTwo * Products.quantity }}</span>
+      </td>
+
+      <td>
+        <span for="">${{Products.data.price * Products.quantity}}</span>
+      </td>
+      <td>
+        <button type="button" class="btn-delete" (click)="deleteProduc(Products)">
+          <img src="../../../assets/Delete.ico" width="30" height="30" class="d-inline-block align-top" alt="">
+        </button>
+      </td>
+    </tr>
+
+
+
+    <tr>
+      <td> Total:</td>
+      <td> {{ totalPrice }}</td>
+
+    </tr>
+  </table>
 <div>
-   <p> Total: {{ totalPrice }}</p>
-   <button  (click)="sendToOrrder()" type="button" class="btnSend btn btn-primary">Enviar a la cocina</button>
+  <button (click)="sendToOrrder()" type="button" class="btnSend btn btn-primary">Enviar a la cocina
+  </button>
 </div>
-
+</form>

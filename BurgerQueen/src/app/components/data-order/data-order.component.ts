@@ -78,18 +78,29 @@ export class DataOrderComponent implements OnInit {
    
    }
 
-   addTotalPrice(){
-    //console.log(this.totalPrice);
-    
-   this.totalPrice = 0;
-   this.arrOrderProducts.forEach((element) => {
-
+   addTotalPrice() {
+    this.totalPrice = 0;
+    this.arrOrderProducts.forEach((element) => {
       const subtotal = element.quantity * element.data.price
-     
       this.totalPrice += subtotal;
-      
-   })
-    }
+      // this.arrOrderProducts.forEach((element) => {
+      if (element.Queso === true && element.Huevo === true) {
+        const priceExtra = element.priceExtraTwo * element.quantity;
+        this.totalPrice += priceExtra;
+        console.log(priceExtra);
+      }
+      if (element.Queso === true && element.Huevo === undefined) {
+        const priceExtra = element.priceExtra * element.quantity;
+        this.totalPrice += priceExtra;
+      }
+      if (element.Huevo === true && element.Queso === undefined) {
+        const priceExtra = element.priceExtra * element.quantity;
+        this.totalPrice += priceExtra;
+      }
+      // })
+    })
+  }
+
 
     deleteProduc(obj){
       const indice = this.arrOrderProducts.findIndex((element)=> element.id === obj.id);
