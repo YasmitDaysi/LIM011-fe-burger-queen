@@ -1,21 +1,24 @@
-<form class="form-inline client-name" [formGroup]="nameForm">
-  <div class="form-group my-2">
-    <label class=" name">Cliente:</label>
-    <input (input)="captureName()" formControlName="nameValue" type="text" class="form-control client-input"
-      id="formGroupExampleInput" placeholder="Ingresa tu nombre">
+<div class="product-container">
+<div class="client-name">
+  <form class="form-inline " [formGroup]="nameForm">
+    <div class="form-group my-2">
+      <label class=" name">Cliente:</label>
+      <input (input)="captureName()" formControlName="nameValue" type="text" class="form-control client-input"
+        id="formGroupExampleInput" placeholder="Ingresa tu nombre">
+    </div>
+  </form>
+</div>
 
-  </div>
-
-
-  <table>
-    <thead class="thead-light">
-      <tr>
-        <th scope="col">Cantidad</th>
-        <th scope="col">Descripción</th>
-        <th scope="col">Precio</th>
-        <!-- <th scope="col"></th> -->
-      </tr>
-    </thead>
+<div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Precio</th>
+    </tr>
+  </thead>
+  <tbody>
     <tr *ngFor="let Products of arrOrderProducts">
       <td>
         <button type="button" class="btn btn-info btnOrder" (click)="addProducts(Products)">+</button>
@@ -32,7 +35,6 @@
         <span *ngIf="Products.Huevo === true && Products.Queso === true"> + huevo y queso
           {{Products.priceExtraTwo * Products.quantity }}</span>
       </td>
-
       <td>
         <span for="">${{Products.data.price * Products.quantity}}</span>
       </td>
@@ -41,18 +43,26 @@
           <img src="../../../assets/Delete.ico" width="30" height="30" class="d-inline-block align-top" alt="">
         </button>
       </td>
+      
     </tr>
-
-
-
     <tr>
-      <td> Total:</td>
-      <td> {{ totalPrice }}</td>
-
+    
     </tr>
-  </table>
-<div>
-  <button (click)="sendToOrrder()" type="button" class="btnSend btn btn-primary">Enviar a la cocina
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="send-Order">
+  <div class="total-price">
+    <p>Total:</p>
+  <span>{{ totalPrice }}</span>
+  </div>
+  <button (click)="sendToOrrder()" type="button" class=" btn btn-primary">Enviar a la cocina
   </button>
 </div>
-</form>
+</div>

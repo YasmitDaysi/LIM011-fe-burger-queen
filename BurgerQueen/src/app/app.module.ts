@@ -17,26 +17,21 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 //componentes
 import { AppComponent } from './app.component';
 import { HeadComponent } from './components/head/head.component';
-import { ClientNameComponent } from './components/client-name/client-name.component';
-import { BtnSendComponent } from './components/btn-send/btn-send.component';
 
 import { from } from 'rxjs';
 import { OptionsMenuComponent } from './components/options-menu/options-menu.component';
 import { ProductsComponent } from './components/products/products.component';
 import { DataOrderComponent } from './components/data-order/data-order.component';
-import { PagesComponent } from './components/pages/pages.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeadComponent,
-    ClientNameComponent,
-    BtnSendComponent,
     OptionsMenuComponent,
     ProductsComponent,
     DataOrderComponent,
-    PagesComponent,
+  
 
   ],
   imports: [
