@@ -10,10 +10,10 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 
 export class DataOrderComponent implements OnInit {
-  indice: number;
-  quantityProducts: number;
-  arrOrderProducts: any[];
-  totalPrice: number = 0;
+  public indice: number;
+  public quantityProducts: number;
+  public  arrOrderProducts: any[];
+  public totalPrice: number = 0;
   public nameCliente: string;
   public objProducts: object;
   public customerName = '';

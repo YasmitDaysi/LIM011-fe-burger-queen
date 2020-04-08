@@ -20,15 +20,11 @@ export class DataOrderService {
   ngOnInit(): void {
   }
 
-  // saveClientName(name) {
-  //   this.clientName = name;
-  // }
   
   addProductToOrder(obj) {
     const itemObj = {
       ...obj,
       quantity: 1,
-      //amount: 0
     };
 
     const newArrObj = [
