@@ -22,6 +22,10 @@ import { from } from 'rxjs';
 import { OptionsMenuComponent } from './components/options-menu/options-menu.component';
 import { ProductsComponent } from './components/products/products.component';
 import { DataOrderComponent } from './components/data-order/data-order.component';
+import { AppRoutingModule } from './app-routing.module';
+import { KitchenOrderComponent } from './components/kitchen-order/kitchen-order.component';
+import { Page404Component } from './components/page404/page404.component';
+import { ProductsMenuComponent } from './components/products-menu/products-menu.component';
 
 
 @NgModule({
@@ -31,6 +35,9 @@ import { DataOrderComponent } from './components/data-order/data-order.component
     OptionsMenuComponent,
     ProductsComponent,
     DataOrderComponent,
+    KitchenOrderComponent,
+    Page404Component,
+    ProductsMenuComponent,
   
 
   ],
@@ -40,7 +47,8 @@ import { DataOrderComponent } from './components/data-order/data-order.component
     AngularFirestoreModule, // imports firebase/storage only needed for storage features
     AngularFireModule.initializeApp(environment.firebase),
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

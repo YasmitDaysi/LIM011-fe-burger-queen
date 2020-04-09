@@ -33,9 +33,6 @@ export class FirebaseService {
   public getProducts() {
    this.products = [];
    return this.firestore.collection('products').snapshotChanges().pipe( map((productsSnapshot:any) => {
-   
-
-    
     productsSnapshot.forEach((productData: any) => {
        this.products.push({
          id: productData.payload.doc.id,
@@ -77,6 +74,7 @@ this.extraProducts.next(value.filter((element)=>element.data.category === 'extra
       })
         }
     })
+    
 
   })
 
