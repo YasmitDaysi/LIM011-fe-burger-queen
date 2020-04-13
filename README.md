@@ -104,15 +104,15 @@ pendientes de tu proyecto anterior.
 
 ### HTML y CSS
 
-- [ ] HTML semántico
-- [ ] CSS flexbox
+- [x] HTML semántico
+- [x] CSS flexbox
 - [ ] scss
-- [ ] Maquetación
+- [x] Maquetación
 
 ### Frontend Development
 
-- [ ] Componentes
-- [ ] Manejo del estado
+- [x] Componentes
+- [x] Manejo del estado
 
 ### PWA
 
@@ -123,14 +123,14 @@ pendientes de tu proyecto anterior.
 
 ### Angular
 
-- [ ] [Uso de Components | Templates](https://angular.io/guide/architecture-components#introduction-to-components)
-- [ ] [Directivas estructurales (ngIf / ngFor)](https://angular.io/guide/template-syntax#built-in-structural-directives)
+- [x] [Uso de Components | Templates](https://angular.io/guide/architecture-components#introduction-to-components)
+- [x] [Directivas estructurales (ngIf / ngFor)](https://angular.io/guide/template-syntax#built-in-structural-directives)
 - [ ] [@Input | @Ouput](https://angular.io/guide/component-interaction#component-interaction)
-- [ ] [Creación y uso de servicios](https://angular.io/guide/architecture-services#providing-services)
+- [x] [Creación y uso de servicios](https://angular.io/guide/architecture-services#providing-services)
 - [ ] [Manejos de rutas](https://angular.io/guide/router)
-- [ ] [Uso de Observables](https://angular.io/guide/observables-in-angular)
+- [x] [Uso de Observables](https://angular.io/guide/observables-in-angular)
 - [ ] [Uso de HttpClient](https://angular.io/guide/http)
-- [ ] [Estilos de componentes (ngStyle / ngClass)](https://angular.io/guide/template-syntax#built-in-directives)
+- [x] [Estilos de componentes (ngStyle / ngClass)](https://angular.io/guide/template-syntax#built-in-directives)
 
 
 ### React
@@ -165,9 +165,9 @@ pendientes de tu proyecto anterior.
 
 ### Firebase
 
-- [ ] Firestore
+- [x] Firestore
 - [ ] Firebase security rules
-- [ ] Observables
+- [x] Observables
 
 ### Testing
 - [ ] Testeo de tus interfaces
@@ -177,7 +177,7 @@ pendientes de tu proyecto anterior.
 
 ### Colaboración en Github
 
-- [ ] Branches
+- [x] Branches
 - [ ] Pull Requests
 - [ ] Tags
 
@@ -190,9 +190,9 @@ pendientes de tu proyecto anterior.
 
 ### Buenas prácticas de desarrollo
 
-- [ ] Modularización
-- [ ] Nomenclatura / Semántica
-- [ ] Linting
+- [x] Modularización
+- [x] Nomenclatura / Semántica
+- [x] Linting
 
 ***
 
