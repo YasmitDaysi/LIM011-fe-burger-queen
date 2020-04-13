@@ -22,7 +22,7 @@ export class ProductsComponent implements OnInit {
     this.firebaseService.filteredProducts.subscribe({
       next: (value => {
         this.productFilter = value
-        console.log(this.productFilter);
+      
 
       }
       )
@@ -30,7 +30,7 @@ export class ProductsComponent implements OnInit {
     this.firebaseService.extraProducts.subscribe({
       next: (value => {
         this.productsExtra = value;
-        console.log(this.productsExtra);
+        
 
       })
     })
@@ -51,7 +51,7 @@ export class ProductsComponent implements OnInit {
     //this.dataOrderService.addProductToOrder(objTemporal)
     this.prodExtraSelected = { ...objTemporal };
 
-    console.log(this.prodExtraSelected);
+   
 
   }
 
@@ -59,7 +59,7 @@ export class ProductsComponent implements OnInit {
     console.log(extra);
 
     this.prodExtraSelected[extra] = true;
-    console.log(this.prodExtraSelected[extra]);
+   
 
 
     this.newObjectExtra = {
