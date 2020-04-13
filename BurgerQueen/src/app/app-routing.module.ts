@@ -1,4 +1,4 @@
-import { ProductsMenuComponent } from './components/products-menu/products-menu.component';
+import { PagesComponent } from './pages/pages/pages.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import{ Routes, RouterModule } from '@angular/router';
@@ -7,7 +7,7 @@ import{Page404Component } from '../app/components/page404/page404.component';
 import{SummaryOrderComponent} from'../app/components/summary-order/summary-order.component';
 
 const routes: Routes = [
-{path: '', component: ProductsMenuComponent},
+{path: '', component: PagesComponent},
 { path:'kitchen', component: KitchenOrderComponent},
 {path:'summary', component: SummaryOrderComponent},
 

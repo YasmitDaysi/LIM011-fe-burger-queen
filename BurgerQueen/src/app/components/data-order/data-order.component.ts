@@ -24,7 +24,7 @@ export class DataOrderComponent implements OnInit {
   ngOnInit(): void {
     this.dataOrderService.currentOrder.subscribe({
       next: (value) => {
-        console.log(value);
+        
 
         this.arrOrderProducts = value
         this.addTotalPrice()
@@ -42,7 +42,7 @@ export class DataOrderComponent implements OnInit {
 
   captureName() {
     this.customerName = this.nameForm.value.nameValue;
-    console.log(this.customerName);
+   
 
   }
 
@@ -99,7 +99,7 @@ export class DataOrderComponent implements OnInit {
       this.arrOrderProducts.splice(indice, 1);
       this.addTotalPrice()
     }
-    console.log(this.arrOrderProducts);
+    
 
   }
 
@@ -114,7 +114,7 @@ export class DataOrderComponent implements OnInit {
 
     }
     this.firebaseService.sendOrderToKitchen(finalObj);
-    console.log('enviado');
+    
   }
 
 }

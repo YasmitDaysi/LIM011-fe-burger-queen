@@ -25,7 +25,7 @@ import { DataOrderComponent } from './components/data-order/data-order.component
 import { AppRoutingModule } from './app-routing.module';
 import { KitchenOrderComponent } from './components/kitchen-order/kitchen-order.component';
 import { Page404Component } from './components/page404/page404.component';
-import { ProductsMenuComponent } from './components/products-menu/products-menu.component';
+import { PagesComponent } from './pages/pages/pages.component';
 
 
 @NgModule({
@@ -37,7 +37,7 @@ import { ProductsMenuComponent } from './components/products-menu/products-menu.
     DataOrderComponent,
     KitchenOrderComponent,
     Page404Component,
-    ProductsMenuComponent,
+    PagesComponent,
   
 
   ],
