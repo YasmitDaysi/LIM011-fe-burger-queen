@@ -46,7 +46,7 @@
           </td>
           <td>
             <button type="button" class="btn-delete" (click)="deleteProduc(Products)">
-              <img src="../../../assets/Delete.ico" width="30" height="30" class="d-inline-block align-top" alt="30">
+              <img src="assets/Delete.ico" width="30" height="30" class="d-inline-block align-top" alt="30">
             </button>
           </td>
 
@@ -60,7 +60,15 @@
       <p>Total:</p>
       <span>S/ {{ totalPrice }}</span>
     </div>
+    <div *ngIf="message !== undefined" class="alert alert-warning" role="alert">
+      {{message}}
+    </div>
+    
+    
+
     <button (click)="sendToOrrder()" type="submit" class=" btn btn-warning btn-order">Enviar a la cocina
     </button>
+   
+    
   </div>
 </section>

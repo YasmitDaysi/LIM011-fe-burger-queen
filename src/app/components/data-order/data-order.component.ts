@@ -17,6 +17,8 @@ export class DataOrderComponent implements OnInit {
   public nameCliente: string;
   public objProducts: object;
   public customerName = '';
+  public message: string;
+
   constructor(private dataOrderService: DataOrderService, private firebaseService: FirebaseService) {
 
   }
@@ -26,8 +28,8 @@ export class DataOrderComponent implements OnInit {
       next: (value) => {
         
 
-        this.arrOrderProducts = value
-        this.addTotalPrice()
+        this.arrOrderProducts = value;
+        this.addTotalPrice();
 
 
       }
@@ -46,35 +48,33 @@ export class DataOrderComponent implements OnInit {
 
   }
 
-
-
   addProducts(itemd) {
 
     this.indice = this.arrOrderProducts.indexOf(itemd);
     this.arrOrderProducts[this.indice].quantity = this.arrOrderProducts[this.indice].quantity + 1;
     this.arrOrderProducts[this.indice].data.price = this.arrOrderProducts[this.indice].data.price;
-    this.addTotalPrice()
+    this.addTotalPrice();
   }
 
 
 
   subtractProducts(obj) {
-    this.indice = this.arrOrderProducts.indexOf(obj)
+    this.indice = this.arrOrderProducts.indexOf(obj);
 
     if (this.arrOrderProducts[this.indice].quantity >= 1) {
       this.arrOrderProducts[this.indice].quantity = this.arrOrderProducts[this.indice].quantity - 1;
     }
     if (this.arrOrderProducts[this.indice].quantity === 0) {
-      this.deleteProduc(obj)
+      this.deleteProduc(obj);
     }
 
-    this.addTotalPrice()
+    this.addTotalPrice();
   }
 
   addTotalPrice() {
     this.totalPrice = 0;
     this.arrOrderProducts.forEach((element) => {
-      const subtotal = element.quantity * element.data.price
+      const subtotal = element.quantity * element.data.price;
       this.totalPrice += subtotal;
       if (element.Queso === true && element.Huevo === true) {
         const priceExtra = element.priceExtraTwo * element.quantity;
@@ -89,7 +89,7 @@ export class DataOrderComponent implements OnInit {
         const priceExtra = element.priceExtra * element.quantity;
         this.totalPrice += priceExtra;
       }
-    })
+    });
   }
 
 
@@ -104,8 +104,9 @@ export class DataOrderComponent implements OnInit {
   }
 
   sendToOrrder() {
-
-    const obj = { ... this.arrOrderProducts }
+    this.message = ` El pedido de ${this.customerName} fue enviado a cocina`;
+const obj = { ... this.arrOrderProducts}
+    console.log(obj)
     const finalObj = {
       customerName: this.customerName,
       Order: obj,
@@ -114,8 +115,14 @@ export class DataOrderComponent implements OnInit {
 
     }
     this.firebaseService.sendOrderToKitchen(finalObj);
-    
+    this.dataOrderService.arrOrder.next([]);
+    this.nameForm.value.nameValue = '';
+    setTimeout(() => {
+      this.message = undefined;
+    }, 4000);
+
   }
+
 
 }
 

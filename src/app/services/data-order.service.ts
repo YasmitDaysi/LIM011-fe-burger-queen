@@ -10,7 +10,7 @@ export class DataOrderService {
   //arrOrder: object[];
   findProducto: [];
    
-  private arrOrder = new BehaviorSubject([]);
+  public arrOrder = new BehaviorSubject([]);
    public currentOrder = this.arrOrder.asObservable();
   public obj: object;
 
